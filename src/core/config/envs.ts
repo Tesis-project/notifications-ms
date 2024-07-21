@@ -11,6 +11,7 @@ enum NodeEnv {
 }
 
 interface EnvVars_I {
+
     PORT: number;
 
     NATS_SERVERS: string[];
@@ -23,7 +24,15 @@ interface EnvVars_I {
     DB_PORT: number;
     DB_USERNAME: string;
 
-    // DB_URL: string;
+    EMAIL_HOST: string;
+    EMAIL_PORT: number;
+    EMAIL_SECURE: boolean;
+    EMAIL_USER: string;
+    EMAIL_PASS: string;
+    EMAIL_SERVICE: string;
+
+    WEB_URL: string;
+
 }
 
 const envsSchema = joi.object({
@@ -40,7 +49,15 @@ const envsSchema = joi.object({
     DB_PORT: joi.number().required(),
     DB_USERNAME: joi.string().required(),
 
-    // DB_URL: joi.string().required()
+    EMAIL_HOST: joi.string().required(),
+    EMAIL_PORT: joi.number().required(),
+    EMAIL_SECURE: joi.boolean().required(),
+    EMAIL_USER: joi.string().required(),
+    EMAIL_PASS: joi.string().required(),
+    EMAIL_SERVICE: joi.string(),
+
+    WEB_URL: joi.string().required()
+
 
 }).unknown(true);
 
@@ -73,5 +90,12 @@ export const envs = {
     db_port: envVars.DB_PORT,
     db_username: envVars.DB_USERNAME,
 
-    // db_url: envVars.DB_URL
+    email_host: envVars.EMAIL_HOST,
+    email_port: envVars.EMAIL_PORT,
+    email_secure: envVars.EMAIL_SECURE,
+    email_user: envVars.EMAIL_USER,
+    email_pass: envVars.EMAIL_PASS,
+    email_service: envVars.EMAIL_SERVICE,
+    web_url: envVars.WEB_URL
+
 }
