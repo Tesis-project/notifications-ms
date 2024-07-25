@@ -27,9 +27,9 @@ export const EmailChange = async ({
 
     try {
 
-        const subject: string = `Cambio de correo electrónico - ${data.name}`;
+        const subject: string = `Cambio de correo electrónico`;
         const html: string = `
-            <p>Hola ${data.name}</p>
+            <p>Hola</p>
             <p>Has solicitado un cambio de correo electrónico a ${data.new_email} en tu cuenta.</p>
             <p>Si no has sido tú, ignora este mensaje.</p>
             <p>Para confirmar el cambio, haz clic en el siguiente enlace:</p>
